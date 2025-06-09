@@ -16,7 +16,7 @@ def validar_correo(correo):
         bool: True si el correo es válido, False en caso contrario
     """
     # TODO: crear la expresión regular para validar el correo
-    patron = ""
+    patron = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     return bool(re.match(patron, correo))
 
 def formatear_duracion(segundos):
@@ -30,6 +30,13 @@ def formatear_duracion(segundos):
         str: Duración formateada como mm:ss
     """
     # TODO: pendiente de implementar
+    if not isinstance(segundos, int) or segundos < 0:
+        raise ValueError("La duración debe ser un número entero no negativo.")
+    
+    minutos = segundos // 60
+    segundos_restantes = segundos % 60
+    
+    return f"{minutos:02}:{segundos_restantes:02}"
     pass 
 
 def generar_slug(texto):
