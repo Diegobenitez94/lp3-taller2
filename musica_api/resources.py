@@ -24,6 +24,7 @@ class Ping(Resource):
     def get(self):
         """Endpoint para verificar que la API está funcionando"""
         # TODO: pendiente de implementar
+        return {"mensaje": "API funcionando correctamente"}, 200
         pass
 
 # Recursos para Usuarios
@@ -35,6 +36,8 @@ class UsuarioListAPI(Resource):
     def get(self):
         """Obtiene todos los usuarios registrados"""
         # TODO: pendiente de implementar
+        usuarios = Usuario.query.all()
+        return usuarios
         pass
     
     @ns.doc("Crear un nuevo usuario")
