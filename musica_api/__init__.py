@@ -31,7 +31,7 @@ def create_app(config_name=None):
     db.init_app(app)   
     # Registro de namespaces
     api.add_namespace(ns)
-    g
+    
     # Crear todas las tablas en la base de datos
     with app.app_context():
         db.create_all()
