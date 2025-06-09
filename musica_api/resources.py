@@ -75,6 +75,8 @@ class UsuarioAPI(Resource):
     def get(self, id):
         """Obtiene un usuario por su ID"""
         # TODO: pendiente de implementar
+        usuario = Usuario.query.get_or_404(id)
+        return usuario
         pass
     
     @ns.doc("Actualizar un usuario")
@@ -122,6 +124,8 @@ class CancionListAPI(Resource):
     def get(self):
         """Obtiene todas las canciones registradas"""
         # TODO: pendiente de implementar
+        canciones = Cancion.query.all()
+        return canciones
         pass
     
     @ns.doc("Crear una nueva canción")
