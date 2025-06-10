@@ -2,12 +2,17 @@
 Script principal para ejecutar la aplicación Flask.
 """
 import os
-from musica_api import create_app
 from dotenv import load_dotenv
 
-# TODO: Cargar variables de entorno desde archivo .env si existe
-load_dotenv()
+from musica_api import create_app
 
+# TODO: Cargar variables de entorno desde archivo .env si existe
+env_path = '.env'
+if os.path.isfile(env_path):
+    load_dotenv(env_path)
+    print("archivo .env cargado")
+else:
+    print("no existe el archivo .env")
 # TODO: crear la aplicación
 app = create_app()
 
@@ -17,6 +22,7 @@ if __name__ == "__main__":
     
     # TODO: Determinar si se debe usar modo debug
     debug_mode = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
+    
     # TODO: Ejecutar aplicación
     app.run(host="0.0.0.0", port=port, debug=debug_mode)
     pass

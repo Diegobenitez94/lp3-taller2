@@ -22,7 +22,9 @@ def create_app(config_name=None):
     app = Flask(__name__)
     # Aplicar configuración según entorno
     # FIXME: Debe usar el método para leer la configuración
-    config_obj = "get_config(config_name)"
+   
+
+    config_obj = get_config(config_name)
     app.config.from_object(config_obj)
     
     # Inicialización de extensiones
@@ -37,4 +39,3 @@ def create_app(config_name=None):
         db.create_all()
     
     return app
-

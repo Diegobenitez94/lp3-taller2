@@ -3,10 +3,10 @@ Módulo de configuración de la aplicación.
 Define las diferentes configuraciones para entornos de desarrollo, pruebas y producción.
 """
 import os
-from dotenv import load_dotenv
+
 
 # Cargar variables de entorno desde archivo .env si existe
-load_dotenv()
+
 
 class Config:
     """Configuración base para la aplicación."""
@@ -14,6 +14,7 @@ class Config:
     # FIXME: la ubicación de la base de datos no funciona
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite://Users/Admin/Public/musica.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS', 'False').lower() == 'true'
+    
     
     # Configuración de la API
     API_TITLE = os.getenv('API_TITLE', 'API de Música')
