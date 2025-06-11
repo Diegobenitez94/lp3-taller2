@@ -22,7 +22,8 @@ def create_app(config_name=None):
     app = Flask(__name__)
     # Aplicar configuración según entorno
     # FIXME: Debe usar el método para leer la configuración
-   
+    if config_name is None:
+        config_name = 'default'
 
     config_obj = get_config(config_name)
     app.config.from_object(config_obj)
